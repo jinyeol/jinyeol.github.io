@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JY의 프로페셔널 웹사이트">
+    <title>JY — 프로페셔널 프로필</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="JY 홈">JY</a>
+      <nav aria-label="주요 메뉴">
+        <a href="#profile">Profile</a>
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section id="profile" class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">HELLO, I'M JY</p>
+        <h1 id="hero-title">작지만 단단한 것을<br><span>만드는 사람</span></h1>
+        <p class="lede">Android 앱을 만들어 온 한국인 엔지니어입니다. 현재 AI agent 관련 교육을 받고 있습니다.</p>
+        <a class="button" href="#games">Games 살펴보기</a>
+      </section>
+
+      <section id="about" class="content-section" aria-labelledby="about-title">
+        <p class="eyebrow">ABOUT</p>
+        <h2 id="about-title">코드와 오래된 게임을 좋아합니다.</h2>
+        <p>아직 게임을 만들어 본 경험은 없지만, 단군의땅·쥬라기공원·마법의대륙 같은 머드 게임을 즐겨 했습니다.</p>
+      </section>
+
+      <section id="games" class="content-section game-preview" aria-labelledby="games-title">
+        <p class="eyebrow">GAMES</p>
+        <h2 id="games-title">작은 게임 방</h2>
+        <div class="game-placeholder" role="status" aria-live="polite">
+          <span class="game-icon" aria-hidden="true">✦</span>
+          <p>지렁이 게임이 준비 중입니다.</p>
+          <small>키보드·터치 조작, 랜덤 적, 레벨, pause-resume 예정</small>
+        </div>
+      </section>
+
+      <section id="contact" class="content-section contact" aria-labelledby="contact-title">
+        <p class="eyebrow">CONTACT</p>
+        <h2 id="contact-title">이야기를 나누고 싶다면</h2>
+        <p>[사람 확인 필요] 이메일 공개 여부를 확인해 주세요.</p>
+      </section>
+    </main>
+
+    <footer><small>© JY · Made with curiosity</small></footer>
+  </body>
+</html>
