@@ -156,12 +156,34 @@
     context.fill();
   }
 
+  function drawEnemy(cell) {
+    const centerX = cell.x * cellSize + cellSize / 2;
+    const centerY = cell.y * cellSize + cellSize / 2;
+    const spikes = 12;
+    context.fillStyle = "#e53958";
+    context.beginPath();
+    for (let index = 0; index < spikes * 2; index += 1) {
+      const angle = (Math.PI * index) / spikes;
+      const radius = index % 2 === 0 ? cellSize * .56 : cellSize * .29;
+      const x = centerX + Math.cos(angle) * radius;
+      const y = centerY + Math.sin(angle) * radius;
+      if (index === 0) context.moveTo(x, y); else context.lineTo(x, y);
+    }
+    context.closePath();
+    context.fill();
+    context.fillStyle = "#ffffff";
+    context.beginPath();
+    context.arc(centerX - cellSize * .16, centerY - cellSize * .08, cellSize * .07, 0, Math.PI * 2);
+    context.arc(centerX + cellSize * .16, centerY - cellSize * .08, cellSize * .07, 0, Math.PI * 2);
+    context.fill();
+  }
+
   function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "#fff8fd";
     context.fillRect(0, 0, canvas.width, canvas.height);
     drawCell(food, "#ffd873", .45);
-    drawCell(enemy, "#ff8eb7", .45);
+    drawEnemy(enemy);
     snake.forEach((part, index) => drawCell(part, index === 0 ? "#8d78ed" : "#b9aaff", .35));
     if (gameState === "over") {
       context.fillStyle = "rgb(61 52 80 / 72%)";
