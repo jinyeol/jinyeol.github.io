@@ -13,6 +13,7 @@
   const pauseButton = document.getElementById("pause-game");
   const restartButton = document.getElementById("restart-game");
   const gameSection = document.getElementById("games");
+  const gameCard = document.querySelector(".game-card");
   const gridSize = 16;
   const cellSize = canvas.width / gridSize;
   const directions = {
@@ -139,6 +140,9 @@
     pauseButton.disabled = true;
     startButton.disabled = false;
     setMessage(`게임 오버! 점수 ${score}점 · 재시작할 수 있습니다.`);
+    gameCard.classList.remove("game-over");
+    void gameCard.offsetWidth;
+    gameCard.classList.add("game-over");
     draw();
   }
 
@@ -159,6 +163,16 @@
     drawCell(food, "#ffd873", .45);
     drawCell(enemy, "#ff8eb7", .45);
     snake.forEach((part, index) => drawCell(part, index === 0 ? "#8d78ed" : "#b9aaff", .35));
+    if (gameState === "over") {
+      context.fillStyle = "rgb(61 52 80 / 72%)";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.fillStyle = "#ffffff";
+      context.textAlign = "center";
+      context.font = "900 28px Segoe UI, sans-serif";
+      context.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 4);
+      context.font = "600 13px Segoe UI, sans-serif";
+      context.fillText("재시작해서 다시 도전해 보세요", canvas.width / 2, canvas.height / 2 + 24);
+    }
   }
 
   const keyDirections = { ArrowUp: "up", w: "up", W: "up", ArrowDown: "down", s: "down", S: "down", ArrowLeft: "left", a: "left", A: "left", ArrowRight: "right", d: "right", D: "right" };
